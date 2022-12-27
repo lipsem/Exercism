@@ -49,7 +49,7 @@ def get_cost(watts, power_factor, price):
     :param: price: float - price of kWh.
     :return: float - cost of kWh.
     """
-    kw = get_kw_value(watts)
-    efficency = get_efficiency(power_factor)
-    return kw / efficiency * price
+    kwh = get_kwh_value(watts)
+    efficiency = get_efficiency(power_factor)
+    return kwh / efficiency * price
 
