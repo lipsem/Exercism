@@ -7,7 +7,9 @@ def get_extra_hours(hours):
     :param: hours: int - amount of hours.
     :return: int - amount of "extra" hours.
     """
-    pass
+    new_hours = hours + 3
+    extra_hours = new_hours % 24
+    return extra_hours
 
 
 def get_kW_value(watts):
@@ -16,7 +18,8 @@ def get_kW_value(watts):
     :param: watts: int - watt value.
     :return: float - kW value.
     """
-    pass
+    kw = watts * 1000
+    return round(kw, 1)
 
 
 def get_kwh_value(watts):
@@ -25,7 +28,7 @@ def get_kwh_value(watts):
     :param: watts: int - watt value.
     :param: hours: int - kilowatt hour value.
     """
-    pass
+    return int(watts * 1000 / 3600)
 
 
 def get_efficiency(power_factor):
@@ -34,6 +37,7 @@ def get_efficiency(power_factor):
     :param: power_factor: float.
     :return: float - efficiency.
     """
+    return power_factor / 100
     pass
 
 
@@ -45,4 +49,7 @@ def get_cost(watts, power_factor, price):
     :param: price: float - price of kWh.
     :return: float - cost of kWh.
     """
-    pass
+    kw = get_kw_value(watts)
+    efficency = get_efficiency(power_factor)
+    return kw / efficiency * price
+
